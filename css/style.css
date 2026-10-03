@@ -1,0 +1,39 @@
+h1 {color:black;
+    
+}
+
+
+nav ul{
+        list-style: none;
+        display: flex;
+        gap: 50px;
+        
+}
+
+nav a {
+    text-decoration: none;
+    color: rgb(233, 185, 52);
+}
+
+header {
+
+    background-color: rgb(166, 167, 166);
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+
+body {
+
+    font-family: "poppins" , sans-serif;
+}
+
+footer {
+         background-color: rgb(170, 168, 168);
+         color: black;
+        padding: 20px;
+        text-align: center;
+
+}
