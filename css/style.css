@@ -1,39 +1,339 @@
-h1 {color:black;
-    
+/* ============================================================
+   1) VARIABLES DE COLOR
+   ============================================================ */
+:root {
+  --azul: #1F3A5F;
+  --azul-claro: #2F5D8C;
+  --amarillo: #FFC83D;
+  --amarillo-oscuro: #FFB703;
+  --coral: #D9482B;
+  --menta: #DDF1E8;
+  --fondo: #F4F8FB;
+  --texto: #2B3A55;
+  --borde: #D5DEE8;
 }
-
-
-nav ul{
-        list-style: none;
-        display: flex;
-        gap: 50px;
-        
+ 
+/* ============================================================
+   2) BASE
+   ============================================================ */
+* {
+  box-sizing: border-box; 
 }
-
-nav a {
-    text-decoration: none;
-    color: rgb(233, 185, 52);
+ 
+html {
+  scroll-behavior: smooth;  /* los enlaces del menú se deslizan suave */
 }
-
-header {
-
-    background-color: rgb(166, 167, 166);
-    padding: 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    
-}
-
+ 
 body {
-
-    font-family: "poppins" , sans-serif;
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  background: var(--fondo);
+  color: var(--texto);
+  line-height: 1.6;
+}
+ 
+/* ============================================================
+   3) HEADER Y MENÚ
+   Fondo con degradado
+   ============================================================ */
+header {
+  background: linear-gradient(135deg, var(--azul), var(--azul-claro));
+  padding: 16px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+ 
+h1 {
+  color: #fff;
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+ 
+/* ::before agrega algo ANTES del texto sin tocar el HTML.
+   \1F43E es el emoji de la huellita */
+h1::before {
+  content: "\1F43E\00a0";
+}
+ 
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+}
+ 
+/* Los enlaces del menú parecen "píldoras" */
+nav a {
+  display: block;
+  padding: 8px 16px;
+  border-radius: 999px;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.2s;
+}
+ 
+nav a:hover,
+nav a:focus-visible {
+  background: var(--amarillo);
+  color: var(--azul);
+}
+ 
+/* ============================================================
+   4) CONTENIDO PRINCIPAL Y TÍTULOS
+   ============================================================ */
+main {
+  max-width: 1100px;
+  margin: 0 auto;           /* centra el contenido */
+  padding: 0 20px;
+}
+ 
+section {
+  padding: 50px 0;
+}
+ 
+h2 {
+  text-align: center;
+  color: var(--azul);
+  font-size: 2rem;
+  margin: 0 0 30px;
+}
+ 
+/* Una barrita amarilla debajo de cada título de sección */
+h2::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 5px;
+  background: var(--amarillo);
+  border-radius: 3px;
+  margin: 10px auto 0;
+}
+ 
+/* ============================================================
+   5) PRODUCTOS (Flexbox)
+   ============================================================ */
+.grilla-productos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+  justify-content: center;
+}
+ 
+article {
+  width: 300px;
+  max-width: 100%;
+  background: #fff;
+  border-radius: 20px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;   /* dentro de la card: todo en columna */
+  gap: 8px;
+  box-shadow: 0 6px 18px rgba(31, 58, 95, 0.12);
+}
+ 
+article img {
+  width: 100%;
+  aspect-ratio: 4 / 3;      /* todas las imágenes con la misma proporción */
+  object-fit: cover;        /* se recortan sin deformarse */
+  border-radius: 14px;
+  display: block;
+}
+ 
+article h3 {
+  margin: 6px 0 0;
+  font-size: 1.15rem;
+  color: var(--azul);
+}
+ 
+article p {
+  margin: 0;
+}
+ 
+.precio {
+  font-weight: 700;
+  font-size: 1.4rem;
+  color: var(--coral);
+  margin-top: auto;         /* empuja el precio al fondo: cards parejas */
+}
+ 
+/* ============================================================
+   6) BOTONES (cards y formulario)
+   ============================================================ */
+button {
+  background: var(--amarillo);
+  color: var(--azul);
+  border: none;
+  border-radius: 999px;
+  padding: 12px 20px;
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+ 
+button:hover {
+  background: var(--amarillo-oscuro);   /* cambia de color al pasar el mouse */
+}
+ 
+button:focus-visible {
+  outline: 3px solid var(--azul);       /* borde visible al navegar con teclado */
+  outline-offset: 2px;
+}
+ 
+/* ============================================================
+   7) RESEÑAS (Grid)
+   ============================================================ */
+#resenas {
+  background: var(--menta);
+  border-radius: 28px;
+  padding: 40px 30px;
+  margin: 20px 0;
+}
+ 
+.grilla-resenas {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);   /* 3 columnas del mismo ancho */
+  gap: 20px;
+}
+ 
+.resena {
+  background: #fff;
+  border-left: 6px solid var(--amarillo);
+  border-radius: 16px;
+  padding: 20px;
+}
+ 
+.resena p {
+  margin: 0 0 12px;
+  font-style: italic;
+}
+ 
+.resena h3 {
+  margin: 0;
+  font-size: 1rem;
+  color: var(--azul);
+}
+ 
+/* ============================================================
+   8) FORMULARIO DE CONTACTO
+   ============================================================ */
+form {
+  display: flex;
+  flex-direction: column;   /* los campos, uno debajo del otro */
+  gap: 10px;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 30px;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 6px 18px rgba(31, 58, 95, 0.12);
+}
+ 
+label {
+  font-weight: 600;
+  color: var(--azul);
+}
+ 
+input,
+textarea {
+  padding: 12px;
+  border: 2px solid var(--borde);
+  border-radius: 12px;
+  font-family: inherit;     /* usa la misma fuente que el resto de la página */
+  font-size: 1rem;
+}
+ 
+/* Cuando hacés clic en un campo, se resalta */
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--azul);
+  box-shadow: 0 0 0 3px rgba(255, 200, 61, 0.6);
+}
+ 
+textarea {
+  resize: vertical;         /* solo se puede agrandar hacia abajo */
+}
+ 
+form button {
+  margin-top: 10px;
+}
+ 
+/* ============================================================
+   9) FOOTER
+   ============================================================ */
+footer {
+  background: var(--azul);
+  color: #fff;
+  text-align: center;
+  padding: 25px 20px;
+  margin-top: 40px;
+}
+ 
+footer p {
+  margin: 0;
+}
+ 
+/* ============================================================
+   10) MEDIA QUERIES
+   Lo que está acá adentro solo vale en pantallas de 768px o menos
+   (celulares y tablets).
+   ============================================================ */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;   /* título arriba y menú abajo */
+    gap: 12px;
+    padding: 16px 20px;
+  }
+ 
+  nav ul {
+    flex-wrap: wrap;          /* si no entran los enlaces, bajan de línea */
+    justify-content: center;
+    gap: 6px;
+  }
+ 
+  h2 {
+    font-size: 1.6rem;
+  }
+ 
+  article {
+    width: 100%;              /* cada card ocupa todo el ancho */
+  }
+ 
+  #resenas {
+    padding: 30px 16px;
+  }
+ 
+  .grilla-resenas {
+    grid-template-columns: 1fr;   /* las reseñas pasan a una sola columna */
+  }
+ 
+  form {
+    max-width: 100%;
+    padding: 20px;
+  }
 }
 
-footer {
-         background-color: rgb(170, 168, 168);
-         color: black;
-        padding: 20px;
-        text-align: center;
+/* ============================================================
+   11) MAPA Y TÍTULO DE UBICACIÓN
+   ============================================================ */
+iframe {
+  display: block;
+  width: 100%;              /* se achica solo en pantallas chicas */
+  max-width: 500px;         /* ancho máximo del mapa */
+  height: 300px;
+  border: 0;
+  border-radius: 20px;
+  margin: 100px auto 0;     /* arriba 100px, centrado a los costados */
+}
 
+.titulo-mapa {
+  text-align: center;
+  color: var(--azul);
+  margin: 50px 0 0;
 }

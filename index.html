@@ -1,17 +1,25 @@
 <!doctype html>
 <html lang="es">
+  <!-- ==================== HEAD ====================
+       Información "de fondo -->
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tiendas para mascotas</title>
+    <!-- Conecta el archivo de estilos -->
     <link rel="stylesheet" href="css/style.css" />
+    <!-- Fuente Poppins de Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
   </head>
   <body>
-    <header>
-      <h1>Productos para mascotas</h1>
+  
+     <!-- ==================== HEADER ====================
+          Parte de arriba de la página: título y menú de navegación. -->
+     <header id="inicio">
+        <h1>Productos para mascotas</h1>
+    <!-- Menú: lista desordenada. -->
     <nav>
         <ul>
             <li><a href="#inicio">Inicio</a></li>
@@ -23,11 +31,146 @@
     </nav>  
 
     </header>
+
+    <!-- ==================== MAIN ====================
+         Contenido principal. Tiene tres secciones: productos, reseñas y contacto. -->
     <main>
-      <section id="productos"><h2>Productos</h2></section>
-      <section id="resenas"><h2>Reseñas</h2></section>
-      <section id="contacto"><h2>Contacto</h2></section>
+      
+      <!-- ---------- PRODUCTOS ----------
+           Cada producto es un <article> (una card). La caja
+           .grilla-productos las acomoda con Flexbox. -->
+      <section id="productos">
+        <h2>Productos</h2>
+
+      <div class="grilla-productos">
+
+        <!-- Card 1: imagen, nombre, descripción, precio y botón -->
+        <article>
+          <img src="img/arnes.png" alt="Arnes para perro">
+          <h3>Arnes</h3>
+          <p>Arnes para perros</p>
+          <span class="precio">22.300$</span>
+          <button>Agregar al carrito</button>
+
+        </article>
+
+                <!-- Card 2 -->
+                <article>
+          <img src="img/bebedero.png" alt="Bebedero">
+          <h3>Bebedero</h3>
+          <p>Bebedero</p>
+          <span class="precio">20.000$</span>
+          <button>Agregar al carrito</button>
+
+        </article>
+
+                <!-- Card 3 -->
+                <article>
+          <img src="img/hueso.png" alt="Juguete">
+          <h3>Hueso para perros</h3>
+          <p>Hueso para perros y gatos</p>
+          <span class="precio">5.250$</span>
+          <button>Agregar al carrito</button>
+
+        </article>
+
+
+                <!-- Card 4 -->
+                <article>
+          <img src="img/isabelino.png" alt="Cono">
+          <h3>Cono isabelino</h3>
+          <p>Cono isabelino para perros</p>
+          <span class="precio">13.500$</span>
+          <button>Agregar al carrito</button>
+
+        </article>
+
+
+                <!-- Card 5 -->
+                <article>
+          <img src="img/ropa.png" alt="ropa">
+          <h3>Ropa</h3>
+          <p>Ropa para perros</p>
+          <span class="precio">12.500$</span>
+          <button>Agregar al carrito</button>
+
+        </article>
+      </div>
+      </section>
+      
+      <!-- ---------- RESEÑAS ----------
+           Comentarios de clientes. La caja .grilla-resenas
+           los ordena en columnas con Grid. -->
+      <section id="resenas">
+        <h2>Reseñas</h2>
+      <div class="grilla-resenas">
+        <!-- Cada reseña: el comentario (p) y el nombre del cliente (h3) -->
+        <div class="resena">
+          <p>Muy buenos productos</p>
+          <h3>Juan Carlos perez</h3>
+        </div>
+
+      
+        <div class="resena">
+          <p>El Arnes es resistente y cómodo</p>
+          <h3>Lucía Fernández</h3>
+        </div>
+        
+        
+     
+        <div class="resena">
+          <p>El isabelino es liviano y mi perra se pudo mover tranquila</p>
+          <h3>Martin Ramirez</h3>
+        </div>
+        
+       
+        <div class="resena">
+          <p>El hueso de juguete es resistente y mi cachorro lo ama.</p>
+          <h3>Maximiliano Ramos</h3>
+        </div> 
+
+
+      </div>
+      </section>
+    
+     <!-- ---------- CONTACTO ----------
+          Formulario conectado con Formspree y mapa de la ubicación. -->
+     <section id="contacto">
+                <h2>Contacto</h2>
+    <!-- action: dirección de Formspree que recibe los datos.
+         method="POST": forma de enviarlos.
+         Cada campo necesita un name para que el dato viaje. -->
+    <form action="https://formspree.io/f/xaeqdkde" method="POST">
+    <label for="nombre">Nombre</label>
+    <input type="text" id="nombre" name="nombre" required>
+
+    <label for="correo">Correo electrónico</label>
+    <input type="email" id="correo" name="correo" required>
+
+    <label for="mensaje">Mensaje</label>
+    <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
+
+    <button type="submit">Enviar</button>
+
+  </form>
+      <!-- Mapa de Google Maps (contenido multimedia con iframe) -->
+      <h3 class="titulo-mapa">Nuestra ubicacion </h3>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d9289.158595882778!2d-58.48060157112259!3d-34.5987619568789!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses!2sar!4v1791851797042!5m2!1ses!2sar" 
+      width="600" 
+      height="450" 
+      style="border:0;" 
+      allowfullscreen="" 
+      title="Mapa de la tienda"
+      loading="lazy" 
+      referrerpolicy="strict-origin-when-cross-origin"></iframe>
+
+</section>
+
+
     </main>
+
+    <!-- ==================== FOOTER ====================
+         Pie de página. -->
     <footer>
       <p>© 2026 Tiendas de mascotas</p>
     </footer>
